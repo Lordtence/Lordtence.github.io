@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+    <head>
+        <!---       RPS CODE PAGE
+        Description: shows the code of rock paper scissors           -->
+        <meta charset = "UTF-8">
+        <title>Rock Paper Scissors Code</title>
+        <link href = "../styles/stylesheet.css" rel = "stylesheet" type = "text/css">
+    </head>
+    <body>
+        <div id = "wrapper">
+            <header>
+                <h1 id = 'title'>Theodore Langlie</h1>
+                    <nav>
+                            <ul>
+                                <li><br><a href="../index.html">Back to Website</a></li>
+                                
+                            </ul>
+                        </nav>
+            </header>
+            <main>
+                <p>/* ----------------------- START OF ROCK PAPER SCISSORS CODE ----------------------- */<br>
+                    // eventHandler for if the rock button is clicked<br>
+                    $("#rock").click(<br>
+                        function() {<br>
+                            // set the user choice to 1 (means rock)<br>
+                            var userChoice = 1;<br>
+                            // print what the user chose<br>
+                            $("#result").text("You chose rock");<br>
+                            // set the computer choice value to a random value between 1-3 by calling the computer() function<br>
+                            var computerChoice = computer();<br>
+                            // finally, call the compare function passing along the two 'choice' variables<br>
+                            compare(computerChoice, userChoice);<br>
+                            <br>
+                    });<br>
+                    // eventHandler for if the paper button is clicked<br>
+                    $("#paper").click(<br>
+                        function() {<br>
+                            // set the user choice to 2 (means paper)<br>
+                            var userChoice = 2;<br>
+                            // print what the user chose<br>
+                            $("#result").text("You chose paper");<br>
+                            // set the computer choice value to a random value between 1-3 by calling the computer() function<br>
+                            var computerChoice = computer();<br>
+                            // finally, call the compare function passing along the two 'choice' variables<br>
+                            compare(computerChoice, userChoice);<br>
+                            <br>
+                    });<br>
+                    // eventHandler for if the scissors button is clicked<br>
+                    $("#scissors").click(<br>
+                        function() {<br>
+                            // set the user choice to 3 (means scissors)<br>
+                            var userChoice = 3;<br>
+                            // print what the user chose<br>
+                            $("#result").text("You chose scissors");<br>
+                            // set the computer choice value to a random value between 1-3 by calling the computer() function<br>
+                            var computerChoice = computer();<br>
+                            // finally, call the compare function passing along the two 'choice' variables<br>
+                            compare(computerChoice, userChoice);<br>
+                            <br>
+                    });<br>
+                });<br>
+                // first we should perscribe values to the different choices<br>
+                // ROCK = 1, PAPER = 2, SCISSORS = 3<br>
+                <br>
+                /**<br>
+                 * This function generates a random number from 1-3, and then returns that value, as well as<br>
+                 * printing that value to the website<br>
+                 */<br>
+                function computer ()<br>
+                {<br>
+                    var x = Math.random(); // 0.9999...<br>
+                    // die: 1-6<br>
+                    // Multiply x by 3: 0.0 - 2.9999....<br>
+                    x *= 3;<br>
+                    // Add 1 to x : 1.0 - 3.999999...<br>
+                    x += 1;<br>
+                    // chop off fractional part --> integers<br>
+                    x = Math.floor(x);<br>
+                    // with that series of statements, x is either 1 2 or 3. so either rock paper or scissors!<br>
+                    <br>
+                    // print out what the computer chose based off the random choice<br>
+                        if (x == 1)<br>
+                        {<br>
+                            $("#AIresult").text("the computer chose rock");<br>
+                        }<br>
+                        else if (x == 2)<br>
+                        {<br>
+                            $("#AIresult").text("the computer chose paper");<br>
+                        }<br>
+                        else<br>
+                        {<br>
+                            $("#AIresult").text("the computer chose scissors");<br>
+                        }<br>
+                        return x; // return the value off the random number<br>
+                }<br>
+                <br>
+                /**<br>
+                 * <br>
+                 * @param ai value that holds the computers random choice<br>
+                 * @param player value that holds the user choice<br>
+                 */<br>
+                function compare (ai, player)<br>
+                {<br>
+                    // first check if they are they same value, if so, it is a tie<br>
+                    if(player == ai) $("#Finalresult").text("It is a tie!");<br>
+                    // then check if any of these scenerios are true, if one of them is, the computer wins<br>
+                    else if (player == 1 && ai == 2 || player == 3 && ai == 1 || player == 2 && ai == 3) $("#Finalresult").text("Computer Wins");<br>
+                    // and then, if it isnt a tie or a win for computer, the player must have won<br>
+                    else $("#Finalresult").text("Player Wins");<br>
+                }<br>
+                /* ----------------------- END OF ROCK PAPER SCISSORS CODE ----------------------- */<br>
+                    </p>
+                    <br><a href="../index.html">Back to Website</a>
+
+            </main>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+    <head>
+        <!---       GAMBLE CODE PAGE
+        Description: shows the code of gamble app        -->
+        <meta charset = "UTF-8">
+        <title>Gamble Code</title>
+        <link href = "../styles/stylesheet.css" rel = "stylesheet" type = "text/css">
+    </head>
+    <body>
+        <div id = "wrapper">
+            <header>
+                <h1 id = 'title'>Theodore Langlie</h1>
+                    <nav>
+                            <ul>
+                                <li><br><a href="../index.html">Back to Website</a></li>
+                                
+                            </ul>
+                        </nav>
+            </header>
+            <main>
+                <p>
+                    $(document).ready(function() {<br>
+                        <br>
+                        // create variable limit that is by default -1<br>
+                        var limit = -1;<br>
+                        <br>
+                        <br>
+                            /* ----------------------- gamble game code----------------------- */<br>
+                                // eventHandler for if the roll button is clicked<br>
+                                $("#roll").click(<br>
+                                    function() {<br>
+                                        // if limit is 0 that means a player hasnt set a limit so just put error message<br>
+                                        if ( limit == -1 )<br>
+                                        {<br>
+                                            $("#returned").append("<p id = gameMessage>You must set a LIMIT</p>");<br>
+                                        } else {<br>
+                                        // create new random variable<br>
+                                        var x = Math.random(); // 0.9999...<br>
+                                        // multiply it by the limit making it from 0 - limit<br>
+                                        x *= limit;<br>
+                                        // add one so its 1 - limit<br>
+                                        x += 1;<br>
+                                        // chop off any decimals<br>
+                                        x = Math.floor(x);<br>
+                                        // show player what they rolled<br>
+                                        $("#returned").append("<p id = gameMessage>You rolled a " + x + " </p>");<br>
+                                        // if that number was 1, they lost the game!<br>
+                                        if(x == 1){<br>
+                                            gameOver(false);<br>
+                                            // reset limit<br>
+                                            limit = -1;<br>
+                                        }<br>
+                                        else {<br>
+                                        // set the new limit to what the player rolled<br>
+                                        limit = x;<br>
+                                        // -------- COMPUTER TURN ---------<br>
+                                        // same process of rolling for a number within limit<br>
+                                        var i = Math.random(); // 0.9999...<br>
+                                        i *= limit;<br>
+                                        i += 1;<br>
+                                        i = Math.floor(i);<br>
+                                        // show what computer rolled<br>
+                                        $("#returned").append("<p id = gameMessage>Computer rolled a " + i + " </p>");<br>
+                                        // if computer rolled a 1 they lose<br>
+                                        if(i == 1){<br>
+                                            gameOver(true);<br>
+                                            limit = -1;<br>
+                                        }<br>
+                                        // set the new limit to whichever rolled number was lowest<br>
+                                        if( i > x )<br>
+                                        {<br>
+                                            limit = x;<br>
+                                        }<br>
+                                        else if( i < x )<br>
+                                        {<br>
+                                            limit = i;<br>
+                                        } else {<br>
+                                            limit = i;<br>
+                                        }<br>
+                                        }<br>
+                                    }<br>
+                                    <br>
+                                });<br>
+                                <br>
+                                // set click event for player to set the limit of the gamble<br>
+                                $("#set").click(<br>
+                                    function() {<br>
+                                        // if the limit is within parameters, set the limit<br>
+                                        if ( $("#limit").val() > 1  && $("#limit").val() <= 1000)<br>
+                                        {<br>
+                                            limit = $("#limit").val();<br>
+                                            $("#limit").remove();<br>
+                                        }                <br>
+                                });<br>
+                            });<br>
+                            <br>
+                            <br>
+                            /**<br>
+                             * <br>
+                             * @param {boolean} playerWin see if player won or not<br>
+                             */<br>
+                            function gameOver (playerWin)<br>
+                            {<br>
+                                // if player won, say player won! otherwise, they took the L<br>
+                                if ( playerWin == true )<br>
+                                {<br>
+                                    $("#Finale").append("<p> Player Won! </p>");<br>
+                                } else {<br>
+                                    $("#Finale").append("<p> Computer Won! </p>");<br>
+                                }<br>
+                            }<br>
+                    </p><br>
+                    <br><a href="../index.html">Back to Website</a>
+
+            </main>
+        </div>
+    </body>
+</html>

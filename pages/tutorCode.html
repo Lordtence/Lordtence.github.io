@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+    <head>
+        <!---       GAMBLE CODE PAGE
+        Description: shows the code of gamble app        -->
+        <meta charset = "UTF-8">
+        <title>Math Tutor Code</title>
+        <link href = "../styles/stylesheet.css" rel = "stylesheet" type = "text/css">
+    </head>
+    <body>
+        <div id = "wrapper">
+            <header>
+                <h1 id = 'title'>Theodore Langlie</h1>
+                    <nav>
+                            <ul>
+                                <li><br><a href="../index.html">Back to Website</a></li>
+                                
+                            </ul>
+                        </nav>
+            </header>
+            <main>
+                <p>$(document).ready(function() {<br>
+                    // setting variables<br>
+                    var isAnswering = false;<br>
+                    var numOfCorrect = 0;<br>
+                    var answer = 0;<br>
+                    <br>
+                    // add click event<br>
+                    $("#add").click(<br>
+                        function() {<br>
+                            <br>
+                            if(isAnswering == false){<br>
+                            // create new random variable<br>
+                              var num1 = Math.random(); // 0.9999...<br>
+                              // multiply it by the limit making it from 0 - 100<br>
+                              num1 *= 100;<br>
+                              // add one so its 1 - 100<br>
+                              num1 += 1;<br>
+                              // chop off any decimals<br>
+                              num1 = Math.floor(num1);<br>
+                              <br>
+                              // create new random variable<br>
+                              var num2 = Math.random(); // 0.9999...<br>
+                              // multiply it by 100 making it from 0 - 100<br>
+                              num2 *= 100;<br>
+                              // add one so its 1 - 100<br>
+                              num2 += 1;<br>
+                              // chop off any decimals<br>
+                              num2 = Math.floor(num2);<br>
+                              // append the question<br>
+                              $("#mathResult").append("<p id = question>What is " + num1 + " + " + num2 + "</p>");<br>
+                              // change variable answer to be the sum of both numbers<br>
+                              answer = (num1 + num2);<br>
+                              // set isAnswering to true to prevent clicking buttons while answering<br>
+                              isAnswering = true;<br>
+                              <br>
+                            } else {<br>
+                                // this means the user cant hit the add or subtract button and must answer the question<br>
+                                $("#errorMath").text("You are currently answering a question.");<br>
+                            }<br>
+                            <br>
+                        });<br>
+                        <br>
+                        // subtract click event<br>
+                        $("#subtract").click(<br>
+                            function() {<br>
+                                if(isAnswering == false){<br>
+                                    // create new random variable<br>
+                                  var num1 = Math.random(); // 0.9999...<br>
+                                  // multiply it by 100 making it from 0 - 100<br>
+                                  num1 *= 100;<br>
+                                  // add one so its 1 - 100<br>
+                                  num1 += 1;<br>
+                                  // chop off any decimals<br>
+                                  num1 = Math.floor(num1);<br>
+                                  <br>
+                                  // create new random variable<br>
+                                  var num2 = Math.random(); // 0.9999...<br>
+                                  // multiply it by 100 making it from 0 - 100<br>
+                                  num2 *= 100;<br>
+                                  // add one so its 1 - 100<br>
+                                  num2 += 1;<br>
+                                  // chop off any decimals<br>
+                                  num2 = Math.floor(num2);<br>
+                                  // append the question<br>
+                                  $("#mathResult").append("<p id = question>What is " + num1 + " - " + num2 + "</p>");<br>
+                                  // change answer variable to be the two numbers subtracted<br>
+                                  answer = (num1 - num2);<br>
+                                  // set isAnswering to true to prevent clicking buttons while answering<br>
+                                  isAnswering = true;<br>
+                                  <br>
+                                } else {<br>
+                                    // this means the user cant hit the add or subtract button and must answer the question<br>
+                                    $("#errorMath").text("You are currently answering a question.");<br>
+                                }         <br>
+                            });<br>
+                            <br>
+                            <br>
+                            // eventHandler for if the answerButton button is clicked<br>
+                            $("#answerButton").click(<br>
+                                function() {<br>
+                                    <br>
+                                    <br>
+                                    // if what the user put into the box is equal to the actual anser<br>
+                                    if ( $("#answer").val() == answer )<br>
+                                    {<br>
+                                        // add 1 to the number of correct questions<br>
+                                        numOfCorrect += 1;<br>
+                                        // print results<br>
+                                        $("#mathResult").text("Correct! you have answered " + numOfCorrect + " question(s) correctly!");<br>
+                                        // change isAnswering to false so that the user can ask more quesitons<br>
+                                        isAnswering = false;<br>
+                                        // clear the answer box<br>
+                                        $("#answer").val("");<br>
+                                    } else {<br>
+                                        // the user got the question wrong<br>
+                                        $("#mathResult").text("Wrong!");<br>
+                                        // change isAnswering to false so that the user can ask more quesitons<br>
+                                        isAnswering = false;<br>
+                                        // clear the answer box<br>
+                                        $("#answer").val("");<br>
+                                    }<br>
+                                    <br>
+                                });<br>
+                                <br>
+                });<br>
+                
+                    
+                    </p><br>
+                    <br><a href="../index.html">Back to Website</a>
+
+            </main>
+        </div>
+    </body>
+</html>

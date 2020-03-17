@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+    <head>
+        <!---       THEODORE LANGLIE INDEX HTML PAGE
+        DESCRIPTON: This is the index! the content of my webpage! ... thats... all it is...          -->
+        <meta charset = "UTF-8">
+        <title>Ted Langlie</title>
+        <script src="scripts/jquery.js"></script>
+        <link href = "styles/stylesheet.css" rel = "stylesheet" type = "text/css">
+        <script src="scripts/webproject.js"></script>
+        <script src="scripts/rockpaperscissors.js"></script>
+        <script src="scripts/gamble.js"></script>
+        <script src="scripts/mathTutor.js"></script>
+    </head>
+    <body>
+        <div id = "wrapper">
+            <header>
+                <h1 id = 'title'>Theodore Langlie</h1>
+                    <nav>
+                            <ul>
+                                <li><a href="#home">HOME</a></li>
+                                <li><a href="#skills">SKILLS</a></li>
+                                <li><a href="#work">WORK</a></li>
+                                <li><a href="#experience">EXPERIENCE</a></li>
+                                <li><a href="#contact">CONTACT</a></li>
+                            </ul>
+                        </nav>
+            </header>
+        <main>
+            <article id = 'home'>
+                    <h1>Theodore Langlie</h1>
+                    <h2>Computer Software Development</h2>
+            </article>
+            <article>
+                <div class = "layoutRow">
+                            <div class = "side">
+                                <h2>About Me!</h2>
+                                <p>I am currently a studdent at Lake Washington Institute of technology getting my Accociates Degree in computer sofftware development.</p>
+                            </div>
+                            <div class = "side2">
+
+                    
+                            </div>
+                
+            </article>
+            <article id = 'skills'>
+                    <h1>SKILLS</h1>
+                    <div id = "squareBlock">
+                    <h5>HTML</h5>
+                    <h5>mySQL</h5>
+                    </div>
+                    <div id = "squareBlock">
+                    <h5>CSS</h5>
+                    <h5>C#</h5>
+                    </div>
+                    <div id = "squareBlock">
+                    <h5>JavaScript</h5>
+                    <h5>Java</h5>
+                    </div>
+                    
+            </article>
+            <article id = 'work'>
+                <h1>WORK</h1>
+                <h2>Rock Paper Scissors</h2>
+           <p>Want to throw rock, paper, or scissors?</p>
+           <!-- These buttons act as the prompt for the user to pick wether they want rock paper or scissors -->
+            <input type="button" value="ROCK" id="rock">
+            <input type="button" value="PAPER" id="paper">
+            <input type="button" value="SCISSORS" id="scissors">
+            <!-- These paragraph elements will be used to print the generated game of RPS -->
+            <p id="result"></p>
+            <p id="AIresult"></p>
+            <p id="Finalresult"></p>
+            <p id="score"></p>
+
+            <a href="pages/rpscode.html">View the Code</a>
+
+            <h2>Gamble Game</h2>
+            <p>Rules: The player decides on a LIMIT. Then, the player rolls between ONE and the LIMIT. The other player then does the same. The lowest number rolled becomes the new limit. process is completed until someone rolls a 1. if you roll a 1 you lose.</p>
+            <label for="limit">Enter the Limit ( must be between 2 - 1000 ):</label>
+            <input type="text" id="limit">
+            <br>
+            <br>
+       <!-- These buttons act as the prompt for the user to pick wether they want rock paper or scissors -->
+        <input type="button" value="ROLL" id="roll">
+        <input type="button" value="SET" id="set">
+        <!-- These paragraph elements will be used to print the generated game of RPS -->
+        <p id="returned"></p>
+        <p id="Finale"></p>
+        <a href="pages/gambleCode.html">View the Code</a>
+            
+        <h2>Math Tutor</h2>
+            <p>This math tutor gives you an addition or subtraction problem at random, then type the answer into the box and hit the answer button.</p>
+            <input type="button" value="ADD" id="add">
+            <input type="button" value="SUBTRACT" id="subtract">
+            <br>
+            <label for="answer">Your Answer:</label>
+            <input type="text" id="answer">
+            <input type="button" value="ANSWER" id="answerButton">
+            <p id = "errorMath"></p>
+            <p id = "mathResult"></p>
+
+            <a href="pages/tutorCode.html">View the Code</a>
+
+            
+                
+            </article>
+            <article id = 'experience'>
+                <h1>EXPERIENCE</h1>
+                <p>I currently have no job experience<br>- PLACEHOLDER<br>- PLACEHOLDER<br>- PLACEHOLDER<br>- PLACEHOLDER<br>- PLACEHOLDER</p>
+            </article>
+            <article id = 'contact'>
+                <h1>CONTACT</h1>
+                <div class = "layoutRow2">
+                    <div class = "side3">
+                        <h2>Email:</h2>
+                        <p><a href = "mailto:tedwardlanglie@gmail.com">tedwardlanglie@gmail.com</a></p>
+                        <h2>Phone:</h2>
+                        <p>(206)491-8537</p>
+                        <section>
+                            <h2>My Email List:</h2>
+                            <form id="email_form" name="email_form" action="join.html" method="get">
+                                <label for="email_address1">Email Address:</label>
+                                <input type="text" id="email_address1">
+                                <span id="email_address1_error">*</span><br>
+                                
+                                <label for="email_address2">Re-enter Email Address:</label>
+                                <input type="text" id="email_address2">
+                                <span id="email_address2_error">*</span><br><br>
+                                <label for="first_name">First Name:</label>
+                                <input type="text" id="first_name">
+                                <span id="first_name_error">*</span><br>
+                                
+                                <label>&nbsp;</label>
+                                <input type="button" id="join_list" value="Join our List"><br>
+                                
+                                <label>&nbsp;</label>
+                                <input type="button" id="clear_entries" value="Clear Entries">
+                            </form>
+                        </section>
+                    </div>
+                    
+                    <div class = "side4">
+
+            
+                    </div>
+                
+            </article>
+            
+        </main>
+        </div>
+        <footer>
+            <a href = "http://Facebook.com">
+                <img src = "Images/fbLogo.png" width = 50 height = 50 alt = "Facebook logo">
+                </a>
+                <a href = "http://Instagram.com">
+                <img src = "Images/inLogo.png" width = 50 height = 50 alt = "Instagram logo">
+                </a>
+                <a href = "https://twitter.com">
+                <img src = "Images/twLogo.png" width = 50 height = 50 alt = "Twitter logo">
+                </a>
+        </footer>
+        
+    </body>
+</html>
